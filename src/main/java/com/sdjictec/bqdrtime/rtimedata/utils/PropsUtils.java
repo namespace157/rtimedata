@@ -1,6 +1,5 @@
 package com.sdjictec.bqdrtime.rtimedata.utils;
 
-import com.sdjictec.utils.OracleDruidPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +14,7 @@ import java.util.Properties;
  * Description:
  */
 public class PropsUtils {
-    private static final Logger logger = LoggerFactory.getLogger(OracleDruidPool.class);
+    private static final Logger logger = LoggerFactory.getLogger(PropsUtils.class);
 
 
     public static void writeProps(String key,String value){
