@@ -1,13 +1,8 @@
 package com.sdjictec.bqdrtime.rtimedata.utils;
-
-import ch.ethz.ssh2.Connection;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ch.ethz.ssh2.ChannelCondition;
-import ch.ethz.ssh2.Session;
 import java.io.IOException;
-import java.io.InputStream;
+
 
 
 import java.io.*;
@@ -41,7 +36,6 @@ public class shellTool {
             e.printStackTrace();
         }
     }
-
     public static void writeProp(String command){
         String profilepath = PropsUtils.class.getResource("/crontabShell.sh").getPath();//我的配置文件在src根目录下
         try {

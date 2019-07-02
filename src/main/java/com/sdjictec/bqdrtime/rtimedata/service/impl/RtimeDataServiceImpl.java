@@ -1,6 +1,6 @@
 package com.sdjictec.bqdrtime.rtimedata.service.impl;
 
-import com.sdjictec.bqdrtime.rtimedata.dao.OffLineDao;
+import com.sdjictec.bqdrtime.rtimedata.utils.OffLineRuntime;
 import com.sdjictec.bqdrtime.rtimedata.dao.RtimeETLInfoDao;
 import com.sdjictec.bqdrtime.rtimedata.dao.SystemInfoDao;
 import com.sdjictec.bqdrtime.rtimedata.entity.RtimeETLInfo;
@@ -36,14 +36,12 @@ public class RtimeDataServiceImpl implements RtimeDataService {
             rtimeETLInfoDao.saveAndFlush(rtimeETLInfo);
             int jobId = rtimeETLInfo.getJobID();
             int taskType = rtimeETLInfo.getTaskType();
-            if(taskType == 0){
+            if(taskType == 0){//判断离线和实时
                 RealTimeExtractAS400ElasticSearch.start(jobId);
             }else{
                 String index_type = rtimeETLInfo.getStrTargetTable();
-
-                OffLineDao.clearType(index_type);
-                OffLineDao.runOffLine(jobId);
-
+                OffLineRuntime.clearType(index_type);
+                OffLineRuntime.runOffLine(jobId);
             }
             return 1;
         }

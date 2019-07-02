@@ -56,11 +56,4 @@ public class PropsUtils {
         String value = p.getProperty(key);
         return value;
     }
-//    public static void main(String[] args){
-//
-//        writeProps("infopassword","1234");
-//        String str = readProps("infopassword");
-//        System.out.println(str);
-//    }
-
 }
